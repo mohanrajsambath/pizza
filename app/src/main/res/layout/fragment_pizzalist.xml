@@ -27,8 +27,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:titleTextColor="@android:color/white"
-            android:background="?attr/colorPrimary">
+            app:titleTextColor="@android:color/holo_red_dark"
+            app:title="@string/app_name"
+            android:background="@color/tittleBarBackground">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/str_pizza_image"
+                android:layout_marginStart="245dp"
+                android:background="@drawable/cart_grey">
+            </ImageView>
+
         </androidx.appcompat.widget.Toolbar>
 
         <ProgressBar
