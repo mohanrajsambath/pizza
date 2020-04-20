@@ -1,13 +1,9 @@
 package com.sathish.test.data.repository
 
 import com.sathish.test.domain.Result
-import com.sathish.test.domain.Pizzas
 import com.sathish.test.domain.Repository.RestaurantsRepository
 import com.mypratice.test.utilis.Connectivity
-import com.sathish.test.domain.Drinks
-import com.sathish.test.domain.Ingredients
 import com.sathish.test.model.*
-import java.lang.Exception
 
 /*
  * Project Name : Nenno's Pizza

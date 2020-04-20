@@ -84,7 +84,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/pizza_item"
             image="@{itemDetails.imageUrl}"/>
 
         <View
@@ -113,7 +112,7 @@
             app:layout_constraintTop_toBottomOf="@id/guidelineForBlackBackground" />
 
         <TextView
-            android:id="@+id/txtVw_PizzaIngerdients"
+            android:id="@+id/txtVw_PizzaIngredients"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

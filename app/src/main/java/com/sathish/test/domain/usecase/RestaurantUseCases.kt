@@ -1,7 +1,6 @@
 package com.sathish.test.domain.usecase
 
 import com.sathish.test.domain.Result
-import com.sathish.test.domain.Pizzas
 import com.sathish.test.model.DrinksResponseApi
 import com.sathish.test.model.IngredientsResponseApi
 import com.sathish.test.model.PizzaResponseApi
