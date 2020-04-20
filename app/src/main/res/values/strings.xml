@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Nennos</string>
+    <string name="str_pizzaName">PizzaName</string>
+    <string name="str_ingredients">Ingredients</string>
+    <string name="str_price">$10</string>
+    <string name="str_pizza_image">Pizza Image</string>
+</resources>

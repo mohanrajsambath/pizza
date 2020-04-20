@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_welcome"
+    app:startDestination="@id/pizza_list">
+
+    <fragment
+        android:id="@+id/pizza_list"
+        android:name="com.sathish.test.view.PizzaListFragment"
+        android:label="PizzaList"
+        tools:layout="@layout/fragment_pizzalist">
+        <!--<action
+            android:id="@+id/action_user_list"
+            />-->
+    </fragment>
+
+</navigation>

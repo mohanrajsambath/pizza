@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+
+apply from: "../common/constants.gradle"
+apply from: "../common/dependencies.gradle"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        applicationId "com.mypratice.sample"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    buildTypes {
+
+        debug {
+            // To display log and log interceptor
+            buildConfigField "boolean", "LOG", "true"
+            buildConfigField "boolean", "RETROFIT_LOG_INTERCEPTOR", "true"
+
+            //*Dev BASE URL
+            buildConfigField "String", "BASE_URL", '"https://doclerlabs.github.io/mobile-native-challenge/"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation kotlinDependencies
+    implementation androidCoreDependencies
+    implementation multiDexDependencies
+    implementation coreUiDependencies
+    implementation navigationDependencies
+    kapt lifecycleAnnotationProcessingDependencies
+    implementation lifecycleDependencies
+    implementation constraintLayoutDependencies
+    implementation koinDependencies
+    implementation retrofitDependencies
+    implementation okHttpDependencies
+    implementation coroutinesDependencies
+    implementation unitTestingDependencies
+    implementation instrumentationTestingDependencies
+    implementation glideDependencies
+
+}
