@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">Nenno\'s Pizza</string>
+    <string name="app_name">Nenno</string>
     <string name="str_pizzaName">PizzaName</string>
     <string name="str_ingredients">Ingredients</string>
     <string name="str_price">$10</string>
     <string name="str_pizza_image">Pizza Image</string>
+    <string name="str_toolBarTextPizza">Nenno\'s Pizza</string>
+    <string name="str_toolBarTextDrinks">Drinks</string>
+    <string name="str_stillWater">Still Water</string>
+    <string name="str_addCart">AddCart</string>
 </resources>

@@ -4,6 +4,7 @@ import com.sathish.test.domain.Result
 import com.sathish.test.domain.Repository.RestaurantsRepository
 import com.sathish.test.domain.usecase.RestaurantUseCases
 import com.sathish.test.model.DrinksResponseApi
+import com.sathish.test.model.DrinksResponseApiItem
 import com.sathish.test.model.IngredientsResponseApi
 import com.sathish.test.model.PizzaResponseApi
 
@@ -27,7 +28,7 @@ class RestaurantUseCasesImpl(private val repository: RestaurantsRepository) :
         return repository.getIngredientList()
     }
 
-    override suspend fun getDrink(): Result<DrinksResponseApi> {
-        TODO("Not yet implemented")
+    override suspend fun getDrink(): Result<List<DrinksResponseApiItem>> {
+        return repository.getDrinksList()
     }
 }

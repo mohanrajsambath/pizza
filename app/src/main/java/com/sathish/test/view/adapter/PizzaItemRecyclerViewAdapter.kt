@@ -1,6 +1,7 @@
 package com.sathish.test.view.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mypratice.test.databinding.PizzaItemsBinding
@@ -45,7 +46,9 @@ class PizzaItemRecyclerViewAdapter : RecyclerView.Adapter<PizzaItemRecyclerViewA
         fun bind(item: Pizza){
         binding.itemDetails =item
             binding.executePendingBindings()
-            binding.clickListener
+            binding.clickListener = View.OnClickListener {
+
+            }
         }
     }
 }

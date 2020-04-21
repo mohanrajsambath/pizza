@@ -16,5 +16,5 @@ import com.sathish.test.model.*
 interface RestaurantsRepository {
  suspend fun  getPizzaList(): Result<PizzaResponseApi>
  suspend fun  getIngredientList() : Result<IngredientsResponseApi>
- suspend fun  getDrinksList(): Result<DrinksResponseApi>
+ suspend fun  getDrinksList(): Result<List<DrinksResponseApiItem>>
 }

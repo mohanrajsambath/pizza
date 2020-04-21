@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="itemDetails"
+            type="com.sathish.test.model.DrinksResponseApi" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Horizontal Guidelines-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gL_DrinkItem_Top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gL_DrinkItem_Bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.09" />
+
+        <!--Vertical Guidelines-->
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gL_DrinkItem_Start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gL_DrinkItem_End"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_stillWater"
+            app:layout_constraintStart_toEndOf="@id/gL_DrinkItem_Start"
+            app:layout_constraintTop_toBottomOf="@id/gL_DrinkItem_Top"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/str_addCart"
+            android:src="@drawable/plus_icon"
+            app:layout_constraintEnd_toStartOf="@id/gL_DrinkItem_End"
+            app:layout_constraintTop_toBottomOf="@id/gL_DrinkItem_Top"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_price"
+            app:layout_constraintStart_toEndOf="@id/gL_DrinkItem_Start"
+            app:layout_constraintTop_toBottomOf="@id/gL_DrinkItem_Bottom"
+            android:textSize="15sp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
