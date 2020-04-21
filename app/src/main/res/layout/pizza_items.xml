@@ -15,7 +15,7 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:onClick="@{clickListener}"
         android:background="@drawable/bg_wood">
 
@@ -25,24 +25,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.45" />
+            app:layout_constraintGuide_percent="0.70" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineForBlackBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.285" />
+            app:layout_constraintGuide_percent="0.680" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gL_RectPrice_Top"
+            android:id="@+id/gL_DrinkItem_Top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.38" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gL_RectPrice_Bottom"
+            android:id="@+id/gL_DrinkItem_Bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -57,14 +57,14 @@
             app:layout_constraintGuide_percent="0.05" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gL_RectPrice_Start"
+            android:id="@+id/gL_DrinkItem_Start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.05" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gL_RectPrice_End"
+            android:id="@+id/gL_DrinkItem_End"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -84,12 +84,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/pizza_item"
             image="@{itemDetails.imageUrl}"/>
 
         <View
             android:id="@+id/vW_blackBackground"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
             android:background="#66000000"
             app:layout_constraintBottom_toTopOf="@id/guidelineForContentItems"
             app:layout_constraintEnd_toEndOf="parent"
@@ -131,10 +132,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/roundedrect"
-            app:layout_constraintBottom_toBottomOf="@id/gL_RectPrice_Bottom"
-            app:layout_constraintEnd_toEndOf="@id/gL_RectPrice_End"
-            app:layout_constraintStart_toStartOf="@id/gL_RectPrice_Start"
-            app:layout_constraintTop_toTopOf="@id/gL_RectPrice_Top" />
+            app:layout_constraintBottom_toBottomOf="@id/gL_DrinkItem_Bottom"
+            app:layout_constraintEnd_toEndOf="@id/gL_DrinkItem_End"
+            app:layout_constraintStart_toStartOf="@id/gL_DrinkItem_Start"
+            app:layout_constraintTop_toTopOf="@id/gL_DrinkItem_Top" />
 
         <ImageView
             android:id="@+id/imgVw_cart_icon"
@@ -142,10 +143,10 @@
             android:layout_height="0dp"
             android:scaleType="centerInside"
             android:contentDescription="@string/str_pizza_image"
-            app:layout_constraintBottom_toBottomOf="@id/gL_RectPrice_Bottom"
+            app:layout_constraintBottom_toBottomOf="@id/gL_DrinkItem_Bottom"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintStart_toStartOf="@id/gL_RectPrice_Start"
-            app:layout_constraintTop_toTopOf="@id/gL_RectPrice_Top"
+            app:layout_constraintStart_toStartOf="@id/gL_DrinkItem_Start"
+            app:layout_constraintTop_toTopOf="@id/gL_DrinkItem_Top"
             app:srcCompat="@drawable/cart_white" />
 
         <TextView
@@ -157,9 +158,9 @@
             android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/gL_RectPrice_Bottom"
-            app:layout_constraintEnd_toEndOf="@+id/gL_RectPrice_End"
+            app:layout_constraintBottom_toBottomOf="@id/gL_DrinkItem_Bottom"
+            app:layout_constraintEnd_toEndOf="@+id/gL_DrinkItem_End"
             app:layout_constraintStart_toEndOf="@+id/imgVw_cart_icon"
-            app:layout_constraintTop_toTopOf="@id/gL_RectPrice_Top" />
+            app:layout_constraintTop_toTopOf="@id/gL_DrinkItem_Top" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

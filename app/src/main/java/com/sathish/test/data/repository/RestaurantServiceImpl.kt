@@ -32,23 +32,6 @@ class RestaurantServiceImpl constructor(
         } else return Result.Error("No Internet Connection")
     }
 
-
-    override suspend fun getDrinksList(): Result<DrinksResponseApi> {
-        return if (connectivity.isNetworkAvailable()) {
-            getDrinkData()
-        } else return Result.Error("No Internet Connection")
-    }
-
-    private suspend fun getDrinkData(): Result<DrinksResponseApi> {
-        val response = restaurantService.getDrinksList()
-        if (response.isSuccessful) {
-            response.body()?.let {
-                return Result.Success(it)
-            }
-        }
-        return Result.Error(response.errorBody().toString())
-    }
-
     private suspend fun getIngredientsData(): Result<IngredientsResponseApi> {
         val response = restaurantService.getIngredientsList()
 
@@ -62,6 +45,22 @@ class RestaurantServiceImpl constructor(
 
     private suspend fun getPizzaData(): Result<PizzaResponseApi> {
         val response = restaurantService.getPizzasList()
+        if (response.isSuccessful) {
+            response.body()?.let {
+                return Result.Success(it)
+            }
+        }
+        return Result.Error(response.errorBody().toString())
+    }
+
+    override suspend fun getDrinksList(): Result<List<DrinksResponseApiItem>> {
+        return if (connectivity.isNetworkAvailable()) {
+            getDrinkData()
+        } else return Result.Error("No Internet Connection")
+    }
+
+    private suspend fun getDrinkData(): Result<List<DrinksResponseApiItem>> {
+        val response = restaurantService.getDrinksList()
         if (response.isSuccessful) {
             response.body()?.let {
                 return Result.Success(it)

@@ -4,22 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+     <data>
 
-        <import type="android.view.View" />
+         <import type="android.view.View" />
 
-        <variable
-            name="viewModel"
-            type="com.sathish.test.viewmodel.PizzaViewModel" />
+         <variable
+             name="viewModel"
+             type="com.sathish.test.viewmodel.DrinkViewModel" />
 
-        <variable
-            name="adapter"
-            type="com.sathish.test.view.adapter.PizzaItemRecyclerViewAdapter" />
+         <variable
+             name="adapter"
+             type="com.sathish.test.view.adapter.DrinkItemRecyclerViewAdapter" />
 
-        <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener" />
-    </data>
+         <variable
+             name="clickListener"
+             type="android.view.View.OnClickListener" />
+     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,33 +32,24 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:titleTextColor="@android:color/holo_red_dark"
-            app:title="@string/str_toolBarTextPizza"
+            app:title="@string/str_toolBarTextDrinks"
             android:background="@color/tittleBarBackground">
-
-            <ImageView
-                android:id="@+id/imgView_cart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/str_pizza_image"
-                android:layout_marginStart="245dp"
-                android:background="@drawable/cart_grey"
-                android:onClick="@{clickListener}">
-            </ImageView>
-
         </androidx.appcompat.widget.Toolbar>
+
 
         <ProgressBar
             android:id="@+id/progress"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading()? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcyVw_pizza_list"
+            android:id="@+id/rcyVw_drinks_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scrollbars="vertical"
@@ -69,7 +60,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:spanCount="2"
-            tools:listitem="@layout/pizza_items" />
+            tools:listitem="@layout/drink_items" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

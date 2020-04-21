@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
  * Desc : 
  */
 
-class PizzasListViewModel constructor(private val useCase: RestaurantUseCases) : BaseViewModel() {
+class PizzaViewModel constructor(private val useCase: RestaurantUseCases) : BaseViewModel() {
 
     private var pizzaList: MutableLiveData<List<Pizza>> = MutableLiveData()
     fun pizzaData() = pizzaList
@@ -52,12 +52,13 @@ class PizzasListViewModel constructor(private val useCase: RestaurantUseCases) :
                 is Result.Success -> {
                     val data = result.data
                     pizzaList.value = data.pizzas
-                   /* data.pizzas.map { pizza ->
-                        pizza.ingredients.map {
+                    data.pizzas.map {
+                            pizza ->
+                        /*pizza.ingredients.map {
                             val item = findItem(it)
                             pizza.ingredientsItems.add(item)
-                        }
-                    }*/
+                        }*/
+                    }
                 }
                 is Result.Error -> {
                     errorMessage.postValue(result.data)
