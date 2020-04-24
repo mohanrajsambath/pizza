@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.mypratice.test.databinding.FragmentDrinksBinding
+import com.mypratice.test.databinding.FragmentDrinkslistBinding
 import com.sathish.test.view.adapter.DrinkItemRecyclerViewAdapter
 import com.sathish.test.viewmodel.DrinkViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -24,15 +24,17 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DrinkListFragment : Fragment() {
 
-    private lateinit var binding: FragmentDrinksBinding
+    private lateinit var binding: FragmentDrinkslistBinding
     private val drinkViewModel: DrinkViewModel by viewModel()
     private val drinkAdapter: DrinkItemRecyclerViewAdapter = DrinkItemRecyclerViewAdapter()
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDrinksBinding.inflate(inflater,container,false)
+        binding = FragmentDrinkslistBinding.inflate(inflater,container,false)
         binding.viewModel = drinkViewModel
         binding.adapter = drinkAdapter
         loadData()
@@ -51,5 +53,4 @@ class DrinkListFragment : Fragment() {
             Toast.makeText(this.requireActivity(), it, Toast.LENGTH_SHORT).show()
         })
     }
-
 }

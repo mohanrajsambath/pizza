@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:titleTextColor="@android:color/holo_red_dark"
             app:title="@string/str_toolBarTextPizza"
-            android:background="@color/tittleBarBackground">
+            android:background="@color/whiteBackground">
 
             <ImageView
                 android:id="@+id/imgView_cart"
@@ -55,7 +55,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/toolbar" />
+            app:layout_constraintTop_toTopOf="@+id/toolbar"
+            android:visibility="@{viewModel.isLoading()? View.VISIBLE : View.GONE}"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcyVw_pizza_list"

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mypratice.test.databinding.PizzaItemsBinding
 import com.sathish.test.model.Pizza
+import com.sathish.test.model.PizzaResponseApi
 
 /*
  * Project Name : Nenno's Pizza
@@ -47,7 +48,6 @@ class PizzaItemRecyclerViewAdapter : RecyclerView.Adapter<PizzaItemRecyclerViewA
         binding.itemDetails =item
             binding.executePendingBindings()
             binding.clickListener = View.OnClickListener {
-
             }
         }
     }

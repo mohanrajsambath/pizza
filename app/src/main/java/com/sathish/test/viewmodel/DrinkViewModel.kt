@@ -27,6 +27,8 @@ class DrinkViewModel constructor(private val useCase: RestaurantUseCases) : Base
     fun drinkData() = drinksList
 
 
+
+
     internal fun loadDrinksList() {
         viewModelScope.launch {
             when (val result = useCase.getDrink()) {
@@ -38,7 +40,7 @@ class DrinkViewModel constructor(private val useCase: RestaurantUseCases) : Base
                     errorMessage.postValue(result.data)
                 }
             }
+            isLoading.set(false)
         }
     }
-
 }

@@ -9,13 +9,13 @@
 
         <variable
             name="itemDetails"
-            type="com.sathish.test.model.DrinksResponseApi" />
+            type="com.sathish.test.model.DrinksResponseApiItem" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="80dp">
 
         <!--Horizontal Guidelines-->
         <androidx.constraintlayout.widget.Guideline
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.09" />
+            app:layout_constraintGuide_percent="0.08" />
 
         <!--Vertical Guidelines-->
 
@@ -49,9 +49,10 @@
             app:layout_constraintGuide_percent="0.95" />
 
         <TextView
+            android:id="@+id/textView_drinkName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/str_stillWater"
+            android:layout_height="0dp"
+            android:text="@{itemDetails.name}"
             app:layout_constraintStart_toEndOf="@id/gL_DrinkItem_Start"
             app:layout_constraintTop_toBottomOf="@id/gL_DrinkItem_Top"
             android:textSize="20sp"
@@ -59,8 +60,10 @@
             />
 
         <ImageView
+            android:id="@+id/imgView_plus"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:onClick="@{clickListener}"
             android:contentDescription="@string/str_addCart"
             android:src="@drawable/plus_icon"
             app:layout_constraintEnd_toStartOf="@id/gL_DrinkItem_End"
@@ -69,11 +72,12 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/str_price"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toEndOf="@id/gL_DrinkItem_Start"
-            app:layout_constraintTop_toBottomOf="@id/gL_DrinkItem_Bottom"
+            app:layout_constraintTop_toBottomOf="@id/textView_drinkName"
             android:textSize="15sp"
+           textPrice="@{itemDetails.price}"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

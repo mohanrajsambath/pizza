@@ -27,8 +27,10 @@ data class Pizza(
     val ingredients: List<Int> = listOf(),
     @SerializedName("name")
     val name: String = "", // Margherita
+    @SerializedName("basePizzaPrice")
+    val basePizzaPrice: Int = 0, // 4
     @SerializedName("ingredientsItems")
-val ingredientsItems : ArrayList<IngredientsResponseApiItem> = ArrayList()
+  val ingredientsItems : ArrayList<IngredientsResponseApiItem> = ArrayList()
 
 )
 class IngredientsResponseApi : ArrayList<IngredientsResponseApiItem>()
@@ -42,6 +44,14 @@ data class IngredientsResponseApiItem(
     val price: Double = 0.0 // 2.2
 )
 
+inline fun ArrayList<IngredientsResponseApiItem>.addItem( id: Int,find :(Int)->IngredientsResponseApiItem?){
+    find(id).let {
+        it?.let {
+            add(it)
+        }
+    }
+}
+
 class DrinksResponseApi : ArrayList<DrinksResponseApiItem>()
 
 data class DrinksResponseApiItem(
@@ -50,7 +60,7 @@ data class DrinksResponseApiItem(
     @SerializedName("name")
     val name: String = "", // Red Wine
     @SerializedName("price")
-    val price: Int = 0 // 4
+    val price: Double = 0.5 // 4
 )
 
 

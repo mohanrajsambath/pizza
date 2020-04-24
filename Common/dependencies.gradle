@@ -91,6 +91,10 @@ ext {
             glideOkHttp: "com.github.bumptech.glide:okhttp3-integration:${rootProject.glide_Version}"
     ])
 
+   /* picassoDependencies = dependencies ([
+            picasso: "com.squareup.picasso:picasso:${picasso_version}"
+    ])*/
+
     // Unit Testing
     unitTestingDependencies = dependencies([
             jUnit: "junit:junit:${rootProject.jUnit_Version}",
@@ -106,6 +110,12 @@ ext {
             runner: "androidx.test.ext:junit:${rootProject.ext_junit_version}",
             espresso: "androidx.test.espresso:espresso-core:${rootProject.espresso_Version}"
     ])
+
+    //Rxjava
+     rxjavaDependencies = dependencies([
+             rxjava:"io.reactivex.rxjava2:rxjava:${rx_java_version}",
+             rxandroid:"io.reactivex.rxjava2:rxandroid:${rootProject.rx_android}"
+     ])
 }
 
 private def static dependencies(dependenciesMap) {
