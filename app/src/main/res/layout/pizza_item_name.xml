@@ -95,12 +95,11 @@
         app:layout_constraintTop_toBottomOf="@id/guidelineForBlackBackground"/>
 
     <TextView
-        android:id="@+id/txtVw_PizzaIngerdients"
+        android:id="@+id/txtVw_PizzaIngredients"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="4dp"
-        android:text="Pizza Ingredients"
         android:textColor="#fff"
         android:textSize="14sp"
         android:textStyle="normal"
@@ -109,7 +108,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/guidelineLeftMargin"
         app:layout_constraintTop_toBottomOf="@id/txtVw_PizzaName"
-        app:layout_constraintBottom_toTopOf="@+id/gL_RectPrice_Top"/>
+        app:layout_constraintBottom_toTopOf="@+id/gL_RectPrice_Top"
+        Ingredient="@{itemDetail.ingredientsItems}"
+        />
 
     <View
         android:id="@+id/vW_price_background"

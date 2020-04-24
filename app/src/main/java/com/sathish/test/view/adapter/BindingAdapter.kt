@@ -5,6 +5,8 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.mypratice.test.R
+import com.sathish.test.model.IngredientsResponseApiItem
+import java.text.FieldPosition
 
 /*
  * Project Name : Nenno's Pizza
@@ -40,3 +42,9 @@ fun setPizzaBasePrice(view: TextView,text:Int?){
         view.text = price
     }
 }
+
+@BindingAdapter("Ingredient")
+fun setIngredient(view: TextView, ingredient:ArrayList<IngredientsResponseApiItem>){
+
+}
+
