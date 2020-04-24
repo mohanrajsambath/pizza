@@ -20,7 +20,7 @@
         android:id="@+id/drink_list"
         android:name="com.sathish.test.view.DrinkListFragment"
         android:label="DrinkList"
-        tools:layout="@layout/fragment_drinks">
+        tools:layout="@layout/fragment_drinkslist">
     </fragment>
 
 </navigation>

@@ -1,8 +1,10 @@
 package com.sathish.test.view.adapter
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.mypratice.test.R
 
 /*
  * Project Name : Nenno's Pizza
@@ -16,7 +18,25 @@ import com.bumptech.glide.Glide
 
 @BindingAdapter("image")
 fun setImageUrl(view: ImageView, imageURL: String?) {
-    Glide.with(view.context).load(imageURL)
-        .load(imageURL)
-        .into(view)
+    if(!imageURL.isNullOrEmpty()) {
+        Glide.with(view.context).load(imageURL)
+            .placeholder(R.drawable.pizza_item)
+            .into(view)
+    }
+}
+
+@BindingAdapter("textPrice")
+fun setPrice(view: TextView,text:Double?){
+    text?.let {
+        val price = "$$text".toString()
+        view.text = price
+    }
+}
+
+@BindingAdapter("pizzaPrice")
+fun setPizzaBasePrice(view: TextView,text:Int?){
+    text?.let {
+        val price = "$$text".toString()
+        view.text = price
+    }
 }
