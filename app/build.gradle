@@ -74,5 +74,6 @@ dependencies {
     implementation unitTestingDependencies
     implementation instrumentationTestingDependencies
     implementation glideDependencies
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
 }
