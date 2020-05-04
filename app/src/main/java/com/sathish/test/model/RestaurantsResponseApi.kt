@@ -1,6 +1,7 @@
 package com.sathish.test.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 /*
@@ -27,10 +28,12 @@ data class Pizza(
     val ingredients: List<Int> = listOf(),
     @SerializedName("name")
     val name: String = "", // Margherita
+    @SerializedName("basePrice")
+    var basePrice: Int = 0, // 4
     @SerializedName("ingredientsItems")
-val ingredientsItems : ArrayList<IngredientsResponseApiItem> = ArrayList()
+  val ingredientsItems : ArrayList<IngredientsResponseApiItem> = ArrayList()
+) : Serializable
 
-)
 class IngredientsResponseApi : ArrayList<IngredientsResponseApiItem>()
 
 data class IngredientsResponseApiItem(
@@ -39,8 +42,18 @@ data class IngredientsResponseApiItem(
     @SerializedName("name")
     val name: String = "", // Tuna
     @SerializedName("price")
-    val price: Double = 0.0 // 2.2
-)
+    val price: Double = 0.0 ,
+    var isAdded : Boolean = false
+) : Serializable
+
+inline fun ArrayList<IngredientsResponseApiItem>.addItem( id: Int,find :(Int)->IngredientsResponseApiItem?){
+    find(id).let {
+        it?.let {
+            add(it)
+        }
+    }
+}
+
 
 class DrinksResponseApi : ArrayList<DrinksResponseApiItem>()
 
@@ -50,7 +63,7 @@ data class DrinksResponseApiItem(
     @SerializedName("name")
     val name: String = "", // Red Wine
     @SerializedName("price")
-    val price: Int = 0 // 4
+    val price: Double = 0.5 // 4
 )
 
 

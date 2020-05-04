@@ -1,8 +1,10 @@
-package com.mypratice.test.viewmodel
+package com.sathish.test.viewmodel
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.sathish.test.model.IngredientsResponseApiItem
+import com.sathish.test.model.Pizza
 
 /*
  * Project Name : Nenno's Pizza

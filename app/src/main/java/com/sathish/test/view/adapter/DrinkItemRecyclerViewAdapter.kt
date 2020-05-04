@@ -1,6 +1,7 @@
 package com.sathish.test.view.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mypratice.test.databinding.DrinkItemsBinding
@@ -15,9 +16,11 @@ import com.sathish.test.model.DrinksResponseApiItem
  * Module Name : app
  * Desc : 
  */
+
 class DrinkItemRecyclerViewAdapter :
     RecyclerView.Adapter<DrinkItemRecyclerViewAdapter.ViewHolder>() {
     private var items: MutableList<DrinksResponseApiItem> = mutableListOf()
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -46,9 +49,10 @@ class DrinkItemRecyclerViewAdapter :
 
     class ViewHolder(private val binding: DrinkItemsBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(drinksResponseApi: DrinksResponseApiItem) {
-
+        fun bind(item: DrinksResponseApiItem) {
+            binding.itemDetails =item
+            binding.clickListener = View.OnClickListener {
+            }
         }
-
     }
 }

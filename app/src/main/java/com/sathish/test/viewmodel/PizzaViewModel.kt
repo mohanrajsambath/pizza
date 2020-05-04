@@ -3,10 +3,11 @@ package com.sathish.test.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.sathish.test.domain.Result
+import com.sathish.test.domain.usecase.AddToCartUseCases
 import com.sathish.test.domain.usecase.RestaurantUseCases
-import com.mypratice.test.viewmodel.BaseViewModel
 import com.sathish.test.model.IngredientsResponseApiItem
 import com.sathish.test.model.Pizza
+import com.sathish.test.model.addItem
 import kotlinx.coroutines.launch
 
 /*
@@ -19,13 +20,14 @@ import kotlinx.coroutines.launch
  * Desc : 
  */
 
-class PizzaViewModel constructor(private val useCase: RestaurantUseCases) : BaseViewModel() {
+class PizzaViewModel constructor(
+    private val useCase: RestaurantUseCases
+) : BaseViewModel() {
 
     private var pizzaList: MutableLiveData<List<Pizza>> = MutableLiveData()
     fun pizzaData() = pizzaList
 
     private var ingredientsResponseApiItem: Sequence<IngredientsResponseApiItem>? = null
-
 
     init {
         loadIngredientList()
@@ -38,6 +40,7 @@ class PizzaViewModel constructor(private val useCase: RestaurantUseCases) : Base
                 is Result.Success -> {
                     val data = result.data
                     ingredientsResponseApiItem = data.asSequence()
+
                 }
                 is Result.Error -> {
                     errorMessage.postValue(result.data)
@@ -51,14 +54,16 @@ class PizzaViewModel constructor(private val useCase: RestaurantUseCases) : Base
             when (val result = useCase.getPizza()) {
                 is Result.Success -> {
                     val data = result.data
-                    pizzaList.value = data.pizzas
-                    data.pizzas.map {
-                            pizza ->
-                        /*pizza.ingredients.map {
-                            val item = findItem(it)
-                            pizza.ingredientsItems.add(item)
-                        }*/
+                    data.pizzas.map { pizza ->
+                        pizza.ingredients.map { ingredientID ->
+                            pizza.ingredientsItems.addItem(ingredientID) {
+                                ingredientsResponseApiItem?.find {
+                                    it.id == ingredientID
+                                }
+                            }
+                        }
                     }
+                    pizzaList.value = data.pizzas
                 }
                 is Result.Error -> {
                     errorMessage.postValue(result.data)
@@ -67,11 +72,6 @@ class PizzaViewModel constructor(private val useCase: RestaurantUseCases) : Base
             isLoading.set(false)
         }
     }
-
-    private fun findItem(id: Int): IngredientsResponseApiItem {
-        val result = ingredientsResponseApiItem?.find {
-            it.id == id
-        }
-        return result!!
-    }
 }
+
+

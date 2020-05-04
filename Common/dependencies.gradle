@@ -80,16 +80,16 @@ ext {
             coroutinesandroid:"org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.coroutine_version}"
     ])
 
-    // Glide Annotation Processing
-    /*glideAnnotationProcessingDependencies = dependencies([
-            glideCompiler: "com.github.bumptech.glide:compiler:${rootProject.glide_Version}"
-    ])*/
 
     // Glide
     glideDependencies = dependencies([
             glide: "com.github.bumptech.glide:glide:${rootProject.glide_Version}",
             glideOkHttp: "com.github.bumptech.glide:okhttp3-integration:${rootProject.glide_Version}"
     ])
+
+   /* picassoDependencies = dependencies ([
+            picasso: "com.squareup.picasso:picasso:${picasso_version}"
+    ])*/
 
     // Unit Testing
     unitTestingDependencies = dependencies([
@@ -106,6 +106,12 @@ ext {
             runner: "androidx.test.ext:junit:${rootProject.ext_junit_version}",
             espresso: "androidx.test.espresso:espresso-core:${rootProject.espresso_Version}"
     ])
+
+    //RxJava
+     rxjavaDependencies = dependencies([
+             rxjava:"io.reactivex.rxjava2:rxjava:${rx_java_version}",
+             rxandroid:"io.reactivex.rxjava2:rxandroid:${rootProject.rx_android}"
+     ])
 }
 
 private def static dependencies(dependenciesMap) {

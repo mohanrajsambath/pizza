@@ -4,8 +4,8 @@ import com.mypratice.test.BuildConfig
 import com.sathish.test.data.repository.RestaurantService
 import com.sathish.test.data.repository.RestaurantServiceImpl
 import com.sathish.test.domain.Repository.RestaurantsRepository
-import com.mypratice.test.utilis.Connectivity
-import com.mypratice.test.utilis.ConnectivityImpl
+import com.sathish.test.utilis.Connectivity
+import com.sathish.test.utilis.ConnectivityImpl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext

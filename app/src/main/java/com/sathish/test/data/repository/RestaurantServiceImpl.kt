@@ -2,7 +2,7 @@ package com.sathish.test.data.repository
 
 import com.sathish.test.domain.Result
 import com.sathish.test.domain.Repository.RestaurantsRepository
-import com.mypratice.test.utilis.Connectivity
+import com.sathish.test.utilis.Connectivity
 import com.sathish.test.model.*
 
 /*
@@ -46,6 +46,10 @@ class RestaurantServiceImpl constructor(
     private suspend fun getPizzaData(): Result<PizzaResponseApi> {
         val response = restaurantService.getPizzasList()
         if (response.isSuccessful) {
+            val basePrice =response.body()!!.basePrice
+            response.body()?.pizzas?.map {
+                it.basePrice = basePrice
+            }
             response.body()?.let {
                 return Result.Success(it)
             }

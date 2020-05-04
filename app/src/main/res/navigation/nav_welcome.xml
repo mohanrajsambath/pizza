@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_welcome"
     app:startDestination="@id/pizza_list">
@@ -10,17 +10,49 @@
         android:name="com.sathish.test.view.PizzaListFragment"
         android:label="PizzaList"
         tools:layout="@layout/fragment_pizzalist">
+
         <action
             android:id="@+id/action_pizza_list"
-            app:destination="@+id/drink_list"
-            />
+            app:destination="@+id/drink_list" />
+
+        <action
+            android:id="@+id/action_ingredient_list"
+            app:destination="@+id/ingredient_list" />
+
     </fragment>
 
     <fragment
         android:id="@+id/drink_list"
         android:name="com.sathish.test.view.DrinkListFragment"
         android:label="DrinkList"
-        tools:layout="@layout/fragment_drinks">
+        tools:layout="@layout/fragment_drinkslist">
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/ingredient_list"
+        android:name="com.sathish.test.view.IngredientListFragment"
+        android:label="IngredientList"
+        tools:layout="@layout/fragment_ingredientlist">
+
+        <argument
+            android:name="name"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="image"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="id"
+            app:argType="com.sathish.test.model.Pizza"
+            app:nullable="false" />
+
     </fragment>
 
 </navigation>

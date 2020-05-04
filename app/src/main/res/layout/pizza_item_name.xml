@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="itemDetail"
+            type="com.sathish.test.model.Pizza" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/items_layout"
+    android:layout_width="match_parent"
+    android:layout_height="110dp">
+
+
+    <!--Horizontal Guidelines-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineForBlackBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineForContentItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gL_RectPrice_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gL_RectPrice_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1.0" />
+
+    <!--Vertical Guidelines-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeftMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gL_RectPrice_Start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gL_RectPrice_End"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <View
+        android:id="@+id/vW_blackBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#66000000"/>
+
+    <TextView
+        android:id="@+id/txtVw_PizzaName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@{itemDetail.name}"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/guidelineLeftMargin"
+        app:layout_constraintTop_toBottomOf="@id/guidelineForBlackBackground"/>
+
+    <TextView
+        android:id="@+id/txtVw_PizzaIngredients"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/guidelineLeftMargin"
+        app:layout_constraintTop_toBottomOf="@id/txtVw_PizzaName"
+        app:layout_constraintBottom_toTopOf="@+id/gL_RectPrice_Top"
+        Ingredient="@{itemDetail.ingredientsItems}"/>
+
+    <View
+        android:id="@+id/vW_price_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintStart_toStartOf="@id/gL_RectPrice_Start"
+        app:layout_constraintEnd_toEndOf="@id/gL_RectPrice_End"
+        app:layout_constraintTop_toTopOf="@id/gL_RectPrice_Top"
+        app:layout_constraintBottom_toBottomOf="@id/gL_RectPrice_Bottom"
+        android:background="@drawable/roundedrect"/>
+
+    <ImageView
+        android:id="@+id/imgVw_cart_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/str_pizzaName"
+        android:scaleType="centerInside"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@id/gL_RectPrice_Start"
+        app:layout_constraintTop_toTopOf="@id/vW_price_background"
+        app:layout_constraintBottom_toBottomOf="@id/vW_price_background"
+        app:srcCompat="@drawable/cart_white" />
+
+    <TextView
+        android:id="@+id/txtVw_PizzaPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/vW_price_background"
+        app:layout_constraintEnd_toEndOf="@+id/gL_RectPrice_End"
+        app:layout_constraintStart_toEndOf="@+id/imgVw_cart_icon"
+        app:layout_constraintTop_toTopOf="@id/vW_price_background"
+        pizzaPrice="@{itemDetail.basePrice}"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
