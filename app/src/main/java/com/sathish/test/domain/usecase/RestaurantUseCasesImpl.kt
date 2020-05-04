@@ -1,12 +1,8 @@
-package com.mypratice.test.domain.usecase
+package com.sathish.test.domain.usecase
 
 import com.sathish.test.domain.Result
 import com.sathish.test.domain.Repository.RestaurantsRepository
-import com.sathish.test.domain.usecase.RestaurantUseCases
-import com.sathish.test.model.DrinksResponseApi
-import com.sathish.test.model.DrinksResponseApiItem
-import com.sathish.test.model.IngredientsResponseApi
-import com.sathish.test.model.PizzaResponseApi
+import com.sathish.test.model.*
 
 /*
  * Project Name : Nenno's Pizza
@@ -19,7 +15,7 @@ import com.sathish.test.model.PizzaResponseApi
  */
 
 class RestaurantUseCasesImpl(private val repository: RestaurantsRepository) :
-    RestaurantUseCases {
+    RestaurantUseCases,AddToCartUseCases {
     override suspend fun getPizza(): Result<PizzaResponseApi> {
         return repository.getPizzaList()
     }
@@ -30,5 +26,18 @@ class RestaurantUseCasesImpl(private val repository: RestaurantsRepository) :
 
     override suspend fun getDrink(): Result<List<DrinksResponseApiItem>> {
         return repository.getDrinksList()
+    }
+
+    override fun addToCart(list: List<IngredientsResponseApiItem>, ingredientItems: List<Int>) {
+        list.map { ingredient ->
+            val id  = ingredientItems.find {
+                it == ingredient.id
+            }
+
+            id?.let {
+                ingredient.isAdded = true
+            }
+
+        }
     }
 }

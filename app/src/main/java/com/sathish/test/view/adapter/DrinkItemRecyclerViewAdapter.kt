@@ -53,7 +53,6 @@ class DrinkItemRecyclerViewAdapter :
             binding.itemDetails =item
             binding.clickListener = View.OnClickListener {
             }
-
         }
     }
 }

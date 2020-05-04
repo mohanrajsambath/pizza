@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.sathish.test.viewmodel.IngredientViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.sathish.test.view.adapter.IngredientItemRecyclerViewAdapter" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_order_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/str_toolBarTextPizza"
+            app:titleTextColor="@android:color/holo_red_dark">
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <ImageView
+            android:id="@+id/imgVw_bg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_order_description"
+            app:srcCompat="@drawable/bg_wood"
+            android:contentDescription="@string/str_pizzaName"
+            />
+
+        <ImageView
+            android:id="@+id/imgVw_content_items"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:contentDescription="@string/str_pizzaName"
+            android:layout_marginTop="50dp"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@+id/imgVw_bg"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pizza_item" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_ingredientTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.43" />
+
+        <TextView
+            android:id="@+id/txtVw_IngredientName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="15dp"
+            android:maxLines="1"
+            android:text="@string/str_ingredients"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/rcyVw_ingredient_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gl_ingredientTop" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_order_description"
+            android:visibility="@{viewModel.isLoading()? View.VISIBLE : View.GONE}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcyVw_ingredient_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            app:adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/btn_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtVw_IngredientName"
+            tools:listitem="@layout/ingredient_item" />
+
+
+        <Button
+            android:id="@+id/btn_cart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cartYellow"
+            android:minHeight="?attr/actionBarSize"
+            android:text="@string/str_add_to_cart"
+            android:textAllCaps="false"
+            android:textColor="@color/whiteBackground"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

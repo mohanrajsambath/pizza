@@ -2,13 +2,9 @@ package com.sathish.test.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.mypratice.test.viewmodel.BaseViewModel
 import com.sathish.test.domain.Result
 import com.sathish.test.domain.usecase.RestaurantUseCases
-import com.sathish.test.model.DrinksResponseApi
 import com.sathish.test.model.DrinksResponseApiItem
-import com.sathish.test.model.IngredientsResponseApiItem
-import com.sathish.test.model.Pizza
 import kotlinx.coroutines.launch
 
 /*

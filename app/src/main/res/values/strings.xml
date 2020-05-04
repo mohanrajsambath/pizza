@@ -9,4 +9,6 @@
     <string name="str_stillWater">Still Water</string>
     <string name="str_addCart">AddCart</string>
     <string name="str_added_to_cart">Added to Cart</string>
+    <string name="str_add_to_cart">Add to Cart ($10)</string>
+
 </resources>

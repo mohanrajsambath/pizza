@@ -1,7 +1,8 @@
-package com.mypratice.test.utilis
+package com.sathish.test.utilis
 
 import android.content.Context
 import android.net.ConnectivityManager
+import com.sathish.test.utilis.Connectivity
 
 /*
  * Project Name : prac

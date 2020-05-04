@@ -4,6 +4,7 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener" />
@@ -17,11 +18,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/items_layout"
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="250dp"
+        android:onClick="@{clickListener}">
 
 
         <!--Horizontal Guidelines-->
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_pizzaTop"
             android:layout_width="wrap_content"
@@ -38,31 +39,31 @@
             app:layout_constraintGuide_percent="0.376" />
 
 
-
         <ImageView
             android:id="@+id/imgVw_bg"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/str_pizzaName"
+            android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="fitXY"
             app:srcCompat="@drawable/bg_wood" />
 
         <ImageView
             android:id="@+id/imgVw_content_items"
+            android:contentDescription="@string/str_pizzaName"
+            image="@{itemDetails.imageUrl}"
             android:layout_width="0dp"
             android:layout_height="180dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:scaleType="centerInside"
-
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gl_pizzaTop"
-            app:srcCompat="@drawable/pizza_item"
-            image="@{itemDetails.imageUrl}"/>
+            app:srcCompat="@drawable/pizza_item" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -75,8 +76,8 @@
 
             <include
                 layout="@layout/pizza_item_name"
-                bind:itemDetail="@{itemDetails}"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                bind:itemDetail="@{itemDetails}" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

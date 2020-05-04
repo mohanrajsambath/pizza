@@ -80,10 +80,6 @@ ext {
             coroutinesandroid:"org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.coroutine_version}"
     ])
 
-    // Glide Annotation Processing
-    /*glideAnnotationProcessingDependencies = dependencies([
-            glideCompiler: "com.github.bumptech.glide:compiler:${rootProject.glide_Version}"
-    ])*/
 
     // Glide
     glideDependencies = dependencies([
@@ -111,7 +107,7 @@ ext {
             espresso: "androidx.test.espresso:espresso-core:${rootProject.espresso_Version}"
     ])
 
-    //Rxjava
+    //RxJava
      rxjavaDependencies = dependencies([
              rxjava:"io.reactivex.rxjava2:rxjava:${rx_java_version}",
              rxandroid:"io.reactivex.rxjava2:rxandroid:${rootProject.rx_android}"

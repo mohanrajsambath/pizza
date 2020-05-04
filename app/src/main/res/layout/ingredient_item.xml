@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="itemDetails"
+            type="com.sathish.test.model.IngredientsResponseApiItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <!--Horizontal Guidelines-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gL_IngredientItem_Top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gL_IngredientItem_Bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.08" />
+
+        <!--Vertical Guidelines-->
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gL_IngredientItem_Start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gL_IngredientItem_End"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <TextView
+            android:id="@+id/textView_ingredientName"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@{itemDetails.name}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/gL_IngredientItem_Start"
+            app:layout_constraintTop_toBottomOf="@id/gL_IngredientItem_Top" />
+
+        <CheckBox
+            android:id="@+id/imgView_plus"
+            CheckBox="@{itemDetails.added}"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/str_addCart"
+            android:src="@drawable/plus_icon"
+            app:layout_constraintEnd_toStartOf="@id/gL_IngredientItem_End"
+            app:layout_constraintTop_toBottomOf="@id/gL_IngredientItem_Top" />
+
+        <TextView
+            textPrice="@{itemDetails.price}"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/gL_IngredientItem_Start"
+            app:layout_constraintTop_toBottomOf="@id/textView_ingredientName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
